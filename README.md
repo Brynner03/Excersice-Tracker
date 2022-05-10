@@ -14,6 +14,7 @@ For our database, we will be giving you the chance to track your workouts throug
 
 We will create controller methods to access the entries from each collection, and have a full CRUD so that you can customize your input if you make a mistake.
 
+### Component Hierarchy
 <img src = "images/frontendPicture.png" >
 
 
