@@ -47,11 +47,6 @@ const Navbar = ({ authenticated, user, handleLogOut }) => {
                 </li>
                         </ul>
                     )}
-                    <div classNAme="navLinks">
-                        <button onClick={toggleNav} className="navBtn">
-
-                        </button>
-                    </div>
                 </nav>
             </div>
         )
