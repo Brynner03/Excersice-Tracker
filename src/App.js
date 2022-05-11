@@ -4,6 +4,7 @@ import { CheckSession } from './services/auth'
 import Home from './pages/Home'
 import Navbar from './components/Navbar';
 import Register from './pages/Register'
+import Login from './pages/Login';
 
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
         <Routes>
           <Route path='/' exact element={<Home/>} />
           <Route path='/register' exact element={<Register />} />
+          <Route path="/login" exact element={<Login setUser={setUser} toggleAuthenticated={toggleAuthenticated} />} />
         </Routes>
       </main>
     </Router>
