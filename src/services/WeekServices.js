@@ -11,8 +11,17 @@ export const GetWeeks = async () => {
 
 export const EditWeek = async (data) => {
     try {
-        const res = await Client.put(`/week/${data.id}`, data)
+        const res = await Client.put(`/week/edit/${data.id}`, data)
         console.log(res.data)
+        return res.data
+    } catch (error) {
+        throw error
+    }
+}
+
+export const CreateWeek = async (data) => {
+    try {
+        const res = await Client.post('/week/create', data)
         return res.data
     } catch (error) {
         throw error
