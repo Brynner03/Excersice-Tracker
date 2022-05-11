@@ -2,6 +2,8 @@ import {BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import React, { useState, useEffect } from 'react';
 import { CheckSession } from './services/auth'
 import Home from './pages/Home'
+import Navbar from './components/Navbar';
+import Register from './pages/Register'
 
 
 function App() {
@@ -9,6 +11,9 @@ function App() {
   const [authenticated, toggleAuthenticated] = useState(false)
   const [user, setUser] = useState({
     userName: '',
+    day_id: '',
+    week_id: '',
+    workout_id: '',
     id: NaN
   })
 
@@ -32,10 +37,11 @@ function App() {
 
   return (
     <Router>
-      {/* <Nav authenticated={authenticated} user={user} handleLogOut={handleLogOut} /> */}
+      <Navbar authenticated={authenticated} user={user} handleLogOut={handleLogOut} />
       <main>
         <Routes>
-          {/* <Route path='/' exact element={<Home/>} /> */}
+          <Route path='/' exact element={<Home/>} />
+          <Route path='/register' exact element={<Register />} />
         </Routes>
       </main>
     </Router>
