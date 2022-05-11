@@ -4,7 +4,7 @@ import { CreateUser } from '../services/auth'
 
 const Register = () => {
 
-    const [form, setForm] = useState({
+    const [formVal, setForm] = useState({
         userName: '',
         password: '',
         passwordCheck: '',
@@ -15,14 +15,14 @@ const Register = () => {
     let navigate = useNavigate()
 
     const handleChange = (e) => {
-        setForm({ ...form, [e.target.name]: e.target.value })
+        setForm({ ...formVal, [e.target.name]: e.target.value })
     }
     const handleSubmit = async (e) => {
         e.preventDefault()
         console.log("Creating User..")
         await CreateUser({
-            userName: form.userName,
-            passwordtemp: form.password
+            userName: formVal.userName,
+            passwordtemp: formVal.password
         })
         setForm({
             userName: '',
@@ -44,10 +44,10 @@ const Register = () => {
                         <input
                         autoComplete='username'
                         onChange={handleChange}
-                        name='username'
+                        name='userName'
                         type='text'
                         placeholder='username'
-                        value={form.userName}
+                        value={formVal.userName}
                         required
                         />
                     </div>
@@ -57,27 +57,27 @@ const Register = () => {
                         name='password'
                         type='password'
                         placeholder='Password'
-                        value={form.password}
+                        value={formVal.password}
                         required
                         />
                     </div>
                     <div className="input-wrap-register">
                         <input
                         onChange={handleChange}
-                        auto-autoComplete='current-password'
+                        autoComplete='current-password'
                         name='passwordCheck'
                         type='password'
                         placeholder='Confirm Password'
-                        value={form.passwordCheck}
+                        value={formVal.passwordCheck}
                         required
                         />
                     </div>
 
                 <button
                 disabled={
-                    !form.userName ||
-                    (!form.password &&
-                        form.passwordCheck === form.password)
+                    !formVal.userName ||
+                    (!formVal.password &&
+                        formVal.passwordCheck === formVal.password)
                 }
                 >Register</button>
                 </form>
