@@ -41,3 +41,12 @@ export const UsersWeek = async (data) => {
         throw error
     }
 }
+
+export const GetWeeksById = async (data) => {
+    try {
+        const res = await Client.put(`/:id`)
+        return res.data
+    } catch (error) {
+        throw error
+    }
+}
