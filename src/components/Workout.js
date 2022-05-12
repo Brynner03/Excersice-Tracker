@@ -56,20 +56,35 @@ const Workout = ({user, authenticated}) => {
     
     useEffect(() => {
         const handleWorkout = async () => {
-            const data = await UsersWorkout(user.id)
+            const data = await UsersWorkout(user)
             setWorkouts(data)
+            
         }
+        console.log('this is the USERRRRRRR',  user)
         handleWorkout()
-    })
+    }, )
 
     return user && authenticated && workouts ? (
         <div>
             <div className='container'>
                 <div className="profile">
                     <div className="username"> {user.userName}</div>
+                    <div className='userWorkouts'>
+                        {workouts.slice('').reverse().map((workout) => (
+                            <div className='workouts' key={workout.id}>
+                                <div className="reps"> {workout.reps}</div>
+                                <div className='sets'> {workout.sets} </div>
+                                <div className="weight"> {workout.weight}</div>
+                                    </div>
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>
+    ) : (
+            <div>
+                Test
+            </div>
     )
 }
 
