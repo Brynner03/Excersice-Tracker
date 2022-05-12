@@ -58,11 +58,10 @@ const Workout = ({user, authenticated}) => {
         const handleWorkout = async () => {
             const data = await UsersWorkout(user.id)
             setWorkouts(data)
-            
         }
-        console.log('this is the USERRRRRRR',  user)
         handleWorkout()
-    }, )
+    },[] )
+
 
     return user && authenticated && workouts ? (
         <div>
@@ -73,9 +72,10 @@ const Workout = ({user, authenticated}) => {
                         {workouts.slice('').reverse().map((workout) => (
                             
                             <div className='workouts' key={workout.id}>
-                                <div className="reps"> {workout.reps}</div>
-                                <div className='sets'> {workout.sets} </div>
-                                <div className="weight"> {workout.weight}</div>
+                                <div className="name">Workout Name: {workout.name} </div>
+                                <div className="reps"> Reps: {workout.reps}</div>
+                                <div className='sets'> Sets:{workout.sets} </div>
+                                <div className="weight"> Weight: {workout.weight}</div>
                                     </div>
                         ))}
                     </div>

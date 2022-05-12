@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 import Register from './pages/Register'
 import Login from './pages/Login';
 import Profile from './pages/Profile'
+import Workout from './components/Workout';
 
 
 function App() {
@@ -45,7 +46,7 @@ function App() {
           <Route path='/' exact element={<Home/>} />
           <Route path='/register' exact element={<Register />} />
           <Route path="/login" exact element={<Login setUser={setUser} toggleAuthenticated={toggleAuthenticated} />} />
-          <Route path='/workout' exact element={<Profile user={user} toggleAuthenticated={toggleAuthenticated} authenticated={authenticated} />} />
+          <Route path='/workout' exact element={<Workout user={user} setUser={setUser} authenticated={authenticated} />} />
 
         </Routes>
       </main>
