@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import { Link } from 'react-router-dom'
+import '../styles/Navbar.css'
 
 
 const Navbar = ({ authenticated, user, handleLogOut }) => {
@@ -31,7 +32,6 @@ const Navbar = ({ authenticated, user, handleLogOut }) => {
                 <nav className='navigation'>
                     {(toggleMenu || screenWidth > 900) && (
                         <ul className='list'>
-                            <li className="navLinks">Welcome {user.userName}, Your id is: {user.id}</li>
                             <li className='navLinks'>
                                 <Link to='/'>Home</Link>
                             </li>
