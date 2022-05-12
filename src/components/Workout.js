@@ -1,21 +1,23 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { UsersWorkout, CreateWorkout, EditWorkout, DeleteWorkout } from '../services/WorkoutServices'
+import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from "react";
 
-const Workout = ({ user, authenticated }) => {
+const Workout = ({user, authenticated}) => {
+
+    
     let navigate = useNavigate()
-
+    
     const [workouts, setWorkouts] = useState([])
     const [editWorkout, editWorkouts] = useState([false, 1])
     const [editReps, setReps] = useState('')
     const [editSets, setSets] = useState('')
     const [editWeights, setWeights] = useState('')
     const [editName, setName] = useState('')
-
+    
     const navDelete = (workout) => {
         navigate(`../workout/${workout.id}`)
-       delWorkout(workout)
+        delWorkout(workout)
     }
     const delWorkout = async (workout) => {
         const sendload = {
@@ -41,23 +43,34 @@ const Workout = ({ user, authenticated }) => {
     }
     const sendit = async (workout) => {
         const sendload = {
-          ...workout,
-          name: editName,
-          sets: editSets,
-          reps: editReps,
-          weight: editWeights
+            ...workout,
+            name: editName,
+            sets: editSets,
+            reps: editReps,
+            weight: editWeights
         };
         console.log(sendload);
         const payload = await EditWorkout(sendload);
         console.log(payload);
-      };
+    };
     
-      useEffect(() => {
-          const handleWorkout = async () => {
-              const data = await UsersWorkout(user.id)
-              setWorkouts(data)
-          }
-          handleWorkout()
-      })
+    useEffect(() => {
+        const handleWorkout = async () => {
+            const data = await UsersWorkout(user.id)
+            setWorkouts(data)
+        }
+        handleWorkout()
+    })
 
+    return user && authenticated && workouts ? (
+        <div>
+            <div className='container'>
+                <div className="profile">
+                    <div className="username"> {user.userName}</div>
+                </div>
+            </div>
+        </div>
+    )
 }
+
+export default Workout
