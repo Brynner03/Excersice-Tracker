@@ -2,6 +2,7 @@ import { UsersWorkout, CreateWorkout, EditWorkout, DeleteWorkout } from '../serv
 import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom'
 import React, { useEffect, useState } from "react";
+import '../styles/Workout.css'
 
 const Workout = ({user, authenticated}) => {
 
@@ -61,13 +62,13 @@ const Workout = ({user, authenticated}) => {
         }
         handleWorkout()
     },[] )
+    
 
 
     return user && authenticated && workouts ? (
         <div>
             <div className='container'>
                 <div className="profile">
-                    <div className="username"> {user.userName}</div>
                     <div className='userWorkouts'>
                         {workouts.slice('').reverse().map((workout) => (
                             

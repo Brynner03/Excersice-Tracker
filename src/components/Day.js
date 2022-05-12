@@ -59,7 +59,11 @@ const Day = ({user, authenticated}) => {
     return user && authenticated && days ? (
         <div>
             <div>{days.slice('').reverse().map((day) => (
+                <div>
                 <div className='day-name' key={day.id}>{day.name}</div>
+                <button>Add A day</button>
+                <button>Delete a day</button>
+                </div>
             ))}</div>
         </div>
     ): (

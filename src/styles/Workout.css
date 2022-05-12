@@ -1,0 +1,10 @@
+.profile {
+    display: flex;
+}
+.userWorkouts {
+    display: flex;
+    justify-content: center;
+}
+.workouts {
+    margin-left: 10em
+}
