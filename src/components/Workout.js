@@ -56,7 +56,7 @@ const Workout = ({user, authenticated}) => {
     
     useEffect(() => {
         const handleWorkout = async () => {
-            const data = await UsersWorkout(user)
+            const data = await UsersWorkout(user.id)
             setWorkouts(data)
             
         }
@@ -71,6 +71,7 @@ const Workout = ({user, authenticated}) => {
                     <div className="username"> {user.userName}</div>
                     <div className='userWorkouts'>
                         {workouts.slice('').reverse().map((workout) => (
+                            
                             <div className='workouts' key={workout.id}>
                                 <div className="reps"> {workout.reps}</div>
                                 <div className='sets'> {workout.sets} </div>
