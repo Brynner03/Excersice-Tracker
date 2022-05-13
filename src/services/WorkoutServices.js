@@ -39,7 +39,7 @@ export const CreateWorkout = async (data) => {
     }
 }
 
-export const UsersWorkout = async (data) => {
+export const UsersWorkout = async (data, day) => {
     try {
         const res = await Client.get(`/workout/user/${data}`)
         console.log(res.data)

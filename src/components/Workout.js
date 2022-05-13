@@ -52,6 +52,16 @@ const Workout = ({user, authenticated, day}) => {
         handleWorkout()
     },[] )
 
+    // function daysss (workout) {
+    //     if (workout.day_id === day.id) {
+    //         return workout
+    //     } else {
+    //         return null
+    //     }
+    // }
+
+    // if (daysss)
+    
     return user && authenticated && workouts ? (
         <div>
           <button className='newWorkout'>Add new workout</button>
@@ -105,6 +115,7 @@ const Workout = ({user, authenticated, day}) => {
                                 <div className="reps"> Reps: {workout.reps}</div>
                                 <div className='sets'> Sets: {workout.sets} </div>
                                 <div className="weight"> Weight: {workout.weight}</div>
+                                <div className='dayId'>DayId: {workout.day_id}</div>
                                 <button onClick={() => delWorkout(workout)} >Delete workout</button>
                                     </div>
                         ))}
