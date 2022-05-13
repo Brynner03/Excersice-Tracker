@@ -6,8 +6,8 @@ import Navbar from './components/Navbar';
 import Register from './pages/Register'
 import Login from './pages/Login';
 import Profile from './pages/Profile'
-import Workout from './components/Workout';
 import './styles/App.css'
+import Workout from './components/Workout';
 
 
 function App() {

@@ -8,7 +8,7 @@ import '../styles/Profile.css'
 const Profile = ({user, authenticated, setUser}) => {
     return user && authenticated ? (
         <div className="profile">
-            {/* <Day user={user} authenticated={authenticated} setUser={setUser} /> */}
+            <Day user={user} authenticated={authenticated} setUser={setUser} />
             <Workout user={user} authenticated={authenticated} setUser={setUser} />
         </div>
     ) : (

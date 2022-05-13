@@ -31,7 +31,7 @@ export const DeleteWorkout = async (data) => {
 
 export const CreateWorkout = async (data) => {
     try {
-        const res = await Client.create('/workout/create', data)
+        const res = await Client.post('/workout/create', data)
         console.log(res.data)
         return res.data
     } catch (error) {

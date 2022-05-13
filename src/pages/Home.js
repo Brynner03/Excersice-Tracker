@@ -1,5 +1,6 @@
 import React from "react";
 import '../styles/Home.css'
+import { Link } from "react-router-dom";
 
 const Home = () => {
 
@@ -9,7 +10,9 @@ const Home = () => {
           <span class='heading-primary-main'>Track your </span>
           <span class="heading-primary-sub">fitness</span>
         </h1>
-      <a href='/register' class="btn btn-white">Start Here</a>
+        <Link to ={'/workout'} >
+      <a href="/workout" className="btn btn-white">Start Here</a>
+        </Link>
       </div>
     )
 }

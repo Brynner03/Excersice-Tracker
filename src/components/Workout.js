@@ -8,10 +8,11 @@ const Workout = ({user, authenticated}) => {
 
     let navigate = useNavigate()
     const [workouts, setWorkouts] = useState([])
-    const [editReps, setReps] = useState('')
-    const [editSets, setSets] = useState('')
-    const [editWeights, setWeights] = useState('')
-    const [editName, setName] = useState('')
+    const [delWork, deleteWork] = useState([])
+    // const [editReps, setReps] = useState('')
+    // const [editSets, setSets] = useState('')
+    // const [editWeights, setWeights] = useState('')
+    // const [editName, setName] = useState('')
 
     // Add A Workout
     const [formVal, setForm] = useState({
@@ -39,6 +40,7 @@ const Workout = ({user, authenticated}) => {
         console.log(sendload)
         const payload = await DeleteWorkout(sendload)
         console.log(payload)
+        deleteWork(payload)
         console.log('Deleted workout')
     }
     // Showing users workouts
