@@ -1,12 +1,9 @@
 import { UsersWorkout, CreateWorkout, EditWorkout, DeleteWorkout } from '../services/WorkoutServices'
-import { useNavigate } from "react-router-dom";
-import { Link } from 'react-router-dom'
 import React, { useEffect, useState } from "react";
 import '../styles/Workout.css'
 
 const Workout = ({user, authenticated, day}) => {
 
-    let navigate = useNavigate()
     const [workouts, setWorkouts] = useState([])
     const [delWork, deleteWork] = useState([])
     // const [editReps, setReps] = useState('')
@@ -14,6 +11,7 @@ const Workout = ({user, authenticated, day}) => {
     // const [editWeights, setWeights] = useState('')
     // const [editName, setName] = useState('')
 
+    
     // Add A Workout
     const [formVal, setForm] = useState({
         name:"",
@@ -21,16 +19,20 @@ const Workout = ({user, authenticated, day}) => {
         reps: '',
         weight: ''
     })
-
+    
     const handleChange = async(e)=> {
         setForm({...formVal, [e.target.name]: e.target.value})
     }
-
+    
     const handleSubmit = async (e) => {
         e.preventDefault()
         const payload = await CreateWorkout({...formVal, user_id: user.id, day_id: day.id})
         console.log(payload)
     }
+
+
+    // Edit Workout
+
 
     // Delete Workout
     const delWorkout = async (workout) => {
@@ -52,15 +54,7 @@ const Workout = ({user, authenticated, day}) => {
         handleWorkout()
     },[] )
 
-    // function daysss (workout) {
-    //     if (workout.day_id === day.id) {
-    //         return workout
-    //     } else {
-    //         return null
-    //     }
-    // }
 
-    // if (daysss)
 
     return user && authenticated && workouts ? (
         <div>
@@ -117,6 +111,7 @@ const Workout = ({user, authenticated, day}) => {
                                 <div className="weight"> Weight: {workout.weight}</div>
                                 <div className='dayId'>DayId: {workout.day_id}</div>
                                 <button onClick={() => delWorkout(workout)} >Delete workout</button>
+                                <button >Edit Workout</button>
                                     </div>
                         ))}
                     </div>
