@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import React, { useEffect, useState } from "react";
 import '../styles/Workout.css'
 
-const Workout = ({user, authenticated}) => {
+const Workout = ({user, authenticated, day}) => {
 
     let navigate = useNavigate()
     const [workouts, setWorkouts] = useState([])
@@ -28,7 +28,7 @@ const Workout = ({user, authenticated}) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const payload = await CreateWorkout({...formVal, user_id: user.id})
+        const payload = await CreateWorkout({...formVal, user_id: user.id, day_id: day.id})
         console.log(payload)
     }
 

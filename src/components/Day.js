@@ -1,6 +1,7 @@
 import {CreateDay, UsersDay, EditDay, DeleteDay} from '../services/DayServices'
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Workout from './Workout';
 
 const Day = ({user, authenticated}) => {
 
@@ -10,11 +11,21 @@ const Day = ({user, authenticated}) => {
     const [editDay, editDays] = useState([false, 1])
     const [editName, editNames] = useState([])
     
-    //Delete Days
-    const navDelete = (day) => {
-        navigate(`../day/${day.id}`)
-        delDay(day)
+    // Add Day
+    const [formVal, setForm] = useState({
+        name:""
+    })
+
+    const handleChange = async(e)=> {
+        setForm({...formVal, [e.target.name]: e.target.value})
     }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        const payload = await CreateDay({...formVal, user_id: user.id})
+        console.log(payload)
+    }
+    //Delete Days
     const delDay = async (day) => {
         const sendload = {
             ...day,
@@ -29,10 +40,6 @@ const Day = ({user, authenticated}) => {
     const updateDay = (day) => {
         editDay([!editDay[0], day.id])
         editNames(day.name)
-    }
-    // Handle Change
-    const handleChange = (e) => {
-        editNames(e.target.value)
     }
 
     //Send it
@@ -61,6 +68,7 @@ const Day = ({user, authenticated}) => {
             <div>{days.slice('').reverse().map((day) => (
                 <div>
                 <div className='day-name' key={day.id}>{day.name}</div>
+                <Workout day={day} user={user} authenticated={authenticated} />
                 <button>Add A day</button>
                 <button>Delete a day</button>
                 </div>
