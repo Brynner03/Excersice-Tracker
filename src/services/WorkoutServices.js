@@ -41,7 +41,7 @@ export const CreateWorkout = async (data) => {
 
 export const UsersWorkout = async (data, day) => {
     try {
-        const res = await Client.get(`/workout/user/${data}`)
+        const res = await Client.get(`/workout/user/${data}/day/${day}`)
         console.log(res.data)
         return res.data
     }  catch (error) {

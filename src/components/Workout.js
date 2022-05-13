@@ -46,7 +46,7 @@ const Workout = ({user, authenticated, day}) => {
     // Showing users workouts
     useEffect(() => {
         const handleWorkout = async () => {
-            const data = await UsersWorkout(user.id)
+            const data = await UsersWorkout(user.id, day.id)
             setWorkouts(data)
         }
         handleWorkout()
@@ -61,7 +61,7 @@ const Workout = ({user, authenticated, day}) => {
     // }
 
     // if (daysss)
-    
+
     return user && authenticated && workouts ? (
         <div>
           <button className='newWorkout'>Add new workout</button>
