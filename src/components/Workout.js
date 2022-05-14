@@ -1,7 +1,7 @@
 import { UsersWorkout, CreateWorkout, EditWorkout, DeleteWorkout } from '../services/WorkoutServices'
 import React, { useEffect, useState } from "react";
 import '../styles/Workout.css'
-import { editableInputTypes } from '@testing-library/user-event/dist/utils';
+import EditWorkoutForm from './EditWorkoutForm';
 
 const Workout = ({user, authenticated, day}) => {
 
@@ -31,8 +31,6 @@ const Workout = ({user, authenticated, day}) => {
         console.log(payload)
     }
 
-
-    // Edit Workout
 
     // Delete Workout
     const delWorkout = async (workout) => {
@@ -111,11 +109,10 @@ const Workout = ({user, authenticated, day}) => {
                                 <div className="weight"> Weight: {workout.weight}</div>
                                 <div className='dayId'>DayId: {workout.day_id}</div>
                                 <button onClick={() => delWorkout(workout)} >Delete workout</button>
-                                <button className='editWorkout'>Edit Workout</button>
+                                <EditWorkoutForm workout={workout} setWorkouts={setWorkouts} />
                             </div>
                         ))}
 
-                        {/* Edit  */}
                       
                     </div>
                 </div>
