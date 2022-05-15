@@ -1,7 +1,7 @@
 import { UsersWorkout, CreateWorkout, EditWorkout, DeleteWorkout } from '../services/WorkoutServices'
 import React, { useEffect, useState } from "react";
 import '../styles/Workout.css'
-import EditWorkoutForm from './EditWorkoutForm';
+// import EditWorkoutForm from './EditWorkoutForm';
 
 const Workout = ({user, authenticated, day}) => {
 

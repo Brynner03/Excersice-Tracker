@@ -10,9 +10,9 @@ const Home = () => {
           <span class='heading-primary-main'>Track your </span>
           <span class="heading-primary-sub">fitness</span>
         </h1>
-        <Link to ={'/workout'} >
+        {/* <Link to ={'/workout'} > */}
       <a href="/workout" className="btn btn-white">Start Here</a>
-        </Link>
+        {/* </Link> */}
       </div>
     )
 }
