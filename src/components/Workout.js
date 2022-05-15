@@ -12,6 +12,34 @@ const Workout = ({user, authenticated, day}) => {
     // const [editWeights, setWeights] = useState('')
     // const [editName, setName] = useState('')
 
+    // Edit Workout
+    const [name, setName] = useState('')
+    const [formValue, setFormValue] = useState({
+        name: '',
+        reps: '',
+        sets: '',
+        weight: ''
+    })
+
+    const preSubmit = () => {
+        const tempWorkout = workouts
+        tempWorkout.name = formValue.name
+        tempWorkout.reps = formValue.reps 
+        tempWorkout.sets = formValue.sets 
+        tempWorkout.weight = formValue.weight
+    }
+    
+    const handleEditForm = async(e, workout) => {
+        e.preventDefault()
+        const sendload = {
+            ...workout,
+        }
+        const payload = await EditWorkout({...formValue,  sendload})
+        console.log('SENDLOADDDD' + sendload)
+        setWorkouts(workouts)
+        console.log('This is the payload' + payload)
+    }
+
     
     // Add A Workout
     const [formVal, setForm] = useState({
@@ -43,6 +71,7 @@ const Workout = ({user, authenticated, day}) => {
         deleteWork(payload)
         console.log('Deleted workout')
     }
+
     // Showing users workouts
     useEffect(() => {
         const handleWorkout = async () => {
@@ -109,7 +138,16 @@ const Workout = ({user, authenticated, day}) => {
                                 <div className="weight"> Weight: {workout.weight}</div>
                                 <div className='dayId'>DayId: {workout.day_id}</div>
                                 <button onClick={() => delWorkout(workout)} >Delete workout</button>
-                                <EditWorkoutForm workout={workout} setWorkouts={setWorkouts} />
+
+                                {/* EDIT  */}
+                                <form onSubmit={handleEditForm} value={formValue}> 
+                                <label>Edit Workout</label>
+                                <input type="text" value='name' onChange={(e) => setName(e.target.value)}/>
+                                {/* <input type='text' value='reps' />
+                                <input type='text' value='sets' />
+                                <input type='text' value='weights' /> */}
+                                <input type="submit" value='Submit Change' />
+                            </form>
                             </div>
                         ))}
 
