@@ -1,17 +1,16 @@
 import { UsersWorkout, CreateWorkout, EditWorkout, DeleteWorkout } from '../services/WorkoutServices'
 import React, { useEffect, useState } from "react";
 import '../styles/Workout.css'
+import Navbar from '../components/Navbar'
 // import EditWorkoutForm from './EditWorkoutForm';
 
-const Workout = ({user, authenticated, day}) => {
+const Workout = ({user, authenticated, day, handleLogOut}) => {
 
     const [workouts, setWorkouts] = useState([])
-    const [delWork, deleteWork] = useState([])
-    // const [editReps, setReps] = useState('')
-    // const [editSets, setSets] = useState('')
-    // const [editWeights, setWeights] = useState('')
-    // const [editName, setName] = useState('')
-
+    const [delWork, deleteWork] = useState([false])
+    
+    const [show, setShow] = useState(false)
+    const [edit,setEdit] = useState(false)
     // Edit Workout
     const [name, setName] = useState('')
     const [formValue, setFormValue] = useState({
@@ -68,11 +67,10 @@ const Workout = ({user, authenticated, day}) => {
         console.log(sendload)
         const payload = await DeleteWorkout(sendload)
         console.log(payload)
-        deleteWork(payload)
+        deleteWork(delWork)
         console.log('Deleted workout')
     }
-
-    const [show, setShow] = useState(false)
+    
 
     // Showing users workouts
     useEffect(() => {
@@ -148,14 +146,18 @@ const Workout = ({user, authenticated, day}) => {
                                 </div>
 
                                 {/* EDIT  */}
-                                {/* <form onSubmit={handleEditForm} value={formValue}> 
-                                <label>Edit Workout</label>
-                                <input type="text" value='name' onChange={(e) => setName(e.target.value)}/> */}
-                                {/* <input type='text' value='reps' />
+                                <button className='newWorkout' onClick={() => setEdit(!edit)}>Edit Workout</button>
+                                {
+                                    edit?
+                                    <form onSubmit={handleEditForm} value={formValue}> 
+                                <div></div>
+                                <input type="text" value='name' onChange={(e) => setName(e.target.value)}/>
+                                <input type='text' value='reps' />
                                 <input type='text' value='sets' />
-                                <input type='text' value='weights' /> */}
-                                {/* <input type="submit" value='Submit Change' /> */}
-                            {/* </form> */}
+                                <input type='text' value='weights' /> 
+                                <input type="submit" value='Submit Change' />
+                             </form>: null
+                                }
                             </div>
                         ))}
 

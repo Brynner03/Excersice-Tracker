@@ -68,7 +68,6 @@ const Day = ({user, authenticated}) => {
         <div className='container'>
             <div className='test'>{days.slice('').reverse().map((day) => (
                 <div className='D'>
-                    <button className='delete' onClick={() => delDay(day)}  >Delete day</button>
                 <div className='day-name' key={day.id}>{day.name}</div>
                 <div className='workouts'>
                 <Workout day={day} user={user} authenticated={authenticated} />

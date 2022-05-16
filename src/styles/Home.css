@@ -3,14 +3,14 @@
     padding: 0;
     box-sizing: border-box;
 }
-body {
+/* body {
     font-family: "Lato", sans-serif;
     font-weight: 400;
     font-size: 16px;
     line-height: 1.7;
     color: #777;
     padding: 30px;
-}
+} */
 .header {
     height:95vh;
     background-image: linear-gradient(to right bottom, rgb(52, 58, 58, 0.7), rgb(56, 58, 70, 0.6)),url(../../images/gym.jpeg);

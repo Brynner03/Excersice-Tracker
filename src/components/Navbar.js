@@ -32,7 +32,7 @@ const Navbar = ({ authenticated, user, handleLogOut }) => {
         )
     }
     let publicOptions = (
-        <header>
+
             <div className="header">
                 <nav className='navigation'>
                     <ul className='list'>
@@ -48,12 +48,12 @@ const Navbar = ({ authenticated, user, handleLogOut }) => {
                     </ul>
                 </nav>
             </div>
-        </header>
+
     )
     return (
-        <header>
+        <main>
             {authenticated && user ? authenticatedOptions : publicOptions}
-        </header>
+        </main>
     )
 }
 
