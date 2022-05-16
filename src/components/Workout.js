@@ -1,9 +1,7 @@
 import { UsersWorkout, CreateWorkout, EditWorkout, DeleteWorkout } from '../services/WorkoutServices'
 import React, { useEffect, useState } from "react";
 import '../styles/Workout.css'
-import Navbar from '../components/Navbar'
-import EditWorkoutForm from './EditWorkoutForm';
-// import EditWorkoutForm from './EditWorkoutForm';
+
 
 const Workout = ({user, authenticated, day, handleLogOut}) => {
 
@@ -32,8 +30,7 @@ const Workout = ({user, authenticated, day, handleLogOut}) => {
     }
     
     const handleEditForm = async(workout) => {
-   
-        const payload = await EditWorkout({...formValue,})
+        const payload = await EditWorkout({...formValue})
         setWorkouts(formValue)
         console.log('This is the payload' + payload)
     }
