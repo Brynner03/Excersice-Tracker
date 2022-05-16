@@ -26,16 +26,14 @@ const Workout = ({user, authenticated, day, handleLogOut}) => {
         tempWorkout.reps = formValue.reps 
         tempWorkout.sets = formValue.sets 
         tempWorkout.weight = formValue.weight
+        
+        handleEditForm()
     }
     
-    const handleEditForm = async(e, workout) => {
-        e.preventDefault()
-        const sendload = {
-            ...workout,
-        }
-        const payload = await EditWorkout({...formValue,  sendload})
-        console.log('SENDLOADDDD' + sendload)
-        setWorkouts(workouts)
+    const handleEditForm = async(workout) => {
+   
+        const payload = await EditWorkout({...formValue,})
+        setWorkouts(formValue)
         console.log('This is the payload' + payload)
     }
 
@@ -85,7 +83,7 @@ const Workout = ({user, authenticated, day, handleLogOut}) => {
 
     return user && authenticated && workouts ? (
         <div className='container'>
-          {/* Form */}
+          {/* Add Workout Form */}
           <div className='form'>
               <button className='newWorkout' onClick={() => setShow(!show)}>Add new workout</button>
         {
@@ -149,8 +147,7 @@ const Workout = ({user, authenticated, day, handleLogOut}) => {
                                 <button className='newWorkout' onClick={() => setEdit(!edit)}>Edit Workout</button>
                                 {
                                     edit?
-                                    <form onSubmit={handleEditForm} value={formValue}> 
-                                <div></div>
+                                <form onSubmit={preSubmit} value={formValue}> 
                                 <input type="text" value='name' onChange={(e) => setName(e.target.value)}/>
                                 <input type='text' value='reps' />
                                 <input type='text' value='sets' />
