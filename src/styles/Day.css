@@ -1,15 +1,15 @@
 
 .D {
-    background-color: rgb(196, 54, 54);
+
 }
 .day-name {
-    background-color: rebeccapurple;
+
     color:aquamarine;
     font-size: 3em
 }
 .container {
     width: 100%;
-    background-color: yellowgreen;
+
 }
 .delete {
     float: right;

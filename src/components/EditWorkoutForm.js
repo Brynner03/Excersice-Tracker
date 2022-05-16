@@ -9,7 +9,7 @@ const EditWorkoutForm = ({setWorkouts}, workouts, day, user) => {
         name: '',
         reps: '',
         sets: '',
-        weight: ''
+        weight: '', 
     })
 
     const preSubmit = () => {
@@ -18,6 +18,8 @@ const EditWorkoutForm = ({setWorkouts}, workouts, day, user) => {
         tempWorkout.reps = formValue.reps 
         tempWorkout.sets = formValue.sets 
         tempWorkout.weight = formValue.weight
+        handleEditForm()
+
     }
 
     // const [reps, setReps] = useState('')
@@ -32,7 +34,7 @@ const EditWorkoutForm = ({setWorkouts}, workouts, day, user) => {
     }
 
     return (
-        <form onSubmit={handleEditForm} value={formValue}> 
+        <form onSubmit={preSubmit} value={formValue}> 
             <label>Edit Workout</label>
             <input type="text" value='name' onChange={(e) => setName(e.target.value)}/>
             {/* <input type='text' value='reps' />

@@ -2,6 +2,7 @@ import { UsersWorkout, CreateWorkout, EditWorkout, DeleteWorkout } from '../serv
 import React, { useEffect, useState } from "react";
 import '../styles/Workout.css'
 import Navbar from '../components/Navbar'
+import EditWorkoutForm from './EditWorkoutForm';
 // import EditWorkoutForm from './EditWorkoutForm';
 
 const Workout = ({user, authenticated, day, handleLogOut}) => {
@@ -147,13 +148,15 @@ const Workout = ({user, authenticated, day, handleLogOut}) => {
                                 <button className='newWorkout' onClick={() => setEdit(!edit)}>Edit Workout</button>
                                 {
                                     edit?
+                                    // <EditWorkoutForm workouts={workouts} setWorkouts={setWorkouts} />
                                 <form onSubmit={preSubmit} value={formValue}> 
-                                <input type="text" value='name' onChange={(e) => setName(e.target.value)}/>
-                                <input type='text' value='reps' />
-                                <input type='text' value='sets' />
-                                <input type='text' value='weights' /> 
-                                <input type="submit" value='Submit Change' />
-                             </form>: null
+                                <input type="text" onChange={(e) => setName(e.target.value)}/>
+                                <input type='text'  />
+                                <input type='text'  />
+                                <input type='text'  /> 
+                                <input type="submit"  />
+                             </form>
+                             : null
                                 }
                             </div>
                         ))}

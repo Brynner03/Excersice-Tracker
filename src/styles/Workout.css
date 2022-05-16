@@ -5,7 +5,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: blanchedalmond;
+
     overflow-x: scroll;
 
 }
@@ -37,11 +37,4 @@
 }
 .deleteWorkout {
     width: 80em;
-}
-.profile {
-    background-color: orange;
-    
-}
-.workouts  {
-    background-color: aliceblue;
 }
