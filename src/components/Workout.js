@@ -10,38 +10,47 @@ const Workout = ({user, authenticated, day, handleLogOut}) => {
     
     const [show, setShow] = useState(false)
     const [edit,setEdit] = useState(false)
+
+
+
     // Edit Workout
     const [name, setName] = useState('')
     const [formValue, setFormValue] = useState({
         name: '',
-        reps: '',
-        sets: '',
-        weight: ''
+        sets: 0,
+        reps: 0,
+        weight: 0
     })
 
-    const preSubmit = () => {
+    const preSubmit = (workout) => {
         const tempWorkout = workouts
+        tempWorkout.id = workout.id
         tempWorkout.name = formValue.name
         tempWorkout.reps = formValue.reps 
         tempWorkout.sets = formValue.sets 
         tempWorkout.weight = formValue.weight
         
-        handleEditForm()
+        handleEditForm(tempWorkout)
     }
     
     const handleEditForm = async(workout) => {
-        const payload = await EditWorkout({...formValue})
+        console.log(formValue)
+        const payload = await EditWorkout({...formValue, id: workout.id})
         setWorkouts(formValue)
         console.log('This is the payload' + payload)
+    }
+
+    const handleChangeEdit = (e)=> {
+        setFormValue({...formValue, [e.target.name]: e.target.value})
     }
 
     
     // Add A Workout
     const [formVal, setForm] = useState({
         name:"",
-        sets:"",
-        reps: '',
-        weight: ''
+        sets:0,
+        reps: 0,
+        weight: 0
     })
     
     const handleChange = async(e)=> {
@@ -146,11 +155,11 @@ const Workout = ({user, authenticated, day, handleLogOut}) => {
                                 {
                                     edit?
                                     // <EditWorkoutForm workouts={workouts} setWorkouts={setWorkouts} />
-                                <form onSubmit={preSubmit} value={formValue}> 
-                                <input type="text" onChange={(e) => setName(e.target.value)}/>
-                                <input type='text'  />
-                                <input type='text'  />
-                                <input type='text'  /> 
+                                <form onSubmit={() => preSubmit(workout)} value={formValue}> 
+                                <input type="text" name='name' onChange={handleChangeEdit} />
+                                <input type='number' name='sets' placeholder='sets' onChange={handleChangeEdit} />
+                                <input type='number' name='reps' placeholder='reps' onChange={handleChangeEdit} />
+                                <input type='number' name='weight' placeholder='weights' onChange={handleChangeEdit} /> 
                                 <input type="submit"  />
                              </form>
                              : null
