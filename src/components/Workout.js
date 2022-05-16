@@ -72,6 +72,8 @@ const Workout = ({user, authenticated, day}) => {
         console.log('Deleted workout')
     }
 
+    const [show, setShow] = useState(false)
+
     // Showing users workouts
     useEffect(() => {
         const handleWorkout = async () => {
@@ -84,10 +86,13 @@ const Workout = ({user, authenticated, day}) => {
 
 
     return user && authenticated && workouts ? (
-        <div>
-          <button className='newWorkout'>Add new workout</button>
+        <div className='container'>
           {/* Form */}
-          <form onSubmit={handleSubmit}>
+          <div className='form'>
+              <button className='newWorkout' onClick={() => setShow(!show)}>Add new workout</button>
+        {
+            show?
+            <form onSubmit={handleSubmit}>
               <div className='input-wrap'>
                   <input 
                   onChange={handleChange}
@@ -122,9 +127,11 @@ const Workout = ({user, authenticated, day}) => {
               required />
               </div>
               <button>Submit</button>
-          </form>
-          {/* End of Form  */}
-
+          </form>:null
+            }
+            </div>
+              {/* End of Form  */}
+              
           {/* Workouts  */}
             <div className='container'>
                 <div className="profile">
@@ -132,22 +139,23 @@ const Workout = ({user, authenticated, day}) => {
                         {workouts.slice('').reverse().map((workout) => (
                             
                             <div className='workouts' key={workout.id}>
+                                <div className='workoutInfo'>
                                 <div className="name">Workout: {workout.name} </div>
                                 <div className="reps"> Reps: {workout.reps}</div>
                                 <div className='sets'> Sets: {workout.sets} </div>
                                 <div className="weight"> Weight: {workout.weight}</div>
-                                <div className='dayId'>DayId: {workout.day_id}</div>
-                                <button onClick={() => delWorkout(workout)} >Delete workout</button>
+                                <button onClick={() => delWorkout(workout)} className='deleteWorkout' >Delete workout</button>
+                                </div>
 
                                 {/* EDIT  */}
-                                <form onSubmit={handleEditForm} value={formValue}> 
+                                {/* <form onSubmit={handleEditForm} value={formValue}> 
                                 <label>Edit Workout</label>
-                                <input type="text" value='name' onChange={(e) => setName(e.target.value)}/>
+                                <input type="text" value='name' onChange={(e) => setName(e.target.value)}/> */}
                                 {/* <input type='text' value='reps' />
                                 <input type='text' value='sets' />
                                 <input type='text' value='weights' /> */}
-                                <input type="submit" value='Submit Change' />
-                            </form>
+                                {/* <input type="submit" value='Submit Change' /> */}
+                            {/* </form> */}
                             </div>
                         ))}
 

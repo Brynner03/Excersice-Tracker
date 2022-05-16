@@ -4,7 +4,44 @@
 .userWorkouts {
     display: flex;
     justify-content: center;
+    align-items: center;
+    background-color: blanchedalmond;
+    overflow-x: scroll;
+
+}
+.workoutInfo {
+    background-color: aqua;
+    width: 500px;
+    border: 1px solid black;
+    overflow: hidden;
+    display: flex;
 }
 .workouts {
-    margin-left: 10em
+    display: flex;
+}
+.name {
+    width: 80em;
+    border: 1px solid red;
+}
+.reps {
+    width: 80em;
+    border: 1px solid red;
+}
+.sets {
+    width: 80em;
+    border: 1px solid red;
+}
+.weight {
+    width: 80em;
+    border: 1px solid red;
+}
+.deleteWorkout {
+    width: 80em;
+}
+.profile {
+    background-color: orange;
+    
+}
+.workouts  {
+    background-color: aliceblue;
 }

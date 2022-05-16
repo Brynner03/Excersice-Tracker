@@ -43,7 +43,7 @@ function App() {
       <Navbar authenticated={authenticated} user={user} handleLogOut={handleLogOut} />
       <main>
         <Routes>
-          <Route path='/' exact element={<Home/>} />
+          <Route path='/' exact element={<Home />} />
           <Route path='/register' exact element={<Register />} />
           <Route path="/login" exact element={<Login setUser={setUser} toggleAuthenticated={toggleAuthenticated} />} />
           <Route path='/workout' exact element={<Profile user={user} setUser={setUser} authenticated={authenticated} />} />

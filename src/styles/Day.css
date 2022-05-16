@@ -1,0 +1,24 @@
+
+.D {
+    background-color: rgb(196, 54, 54);
+}
+.day-name {
+    background-color: rebeccapurple;
+    color:aquamarine;
+    font-size: 3em
+}
+.container {
+    width: 100%;
+    background-color: yellowgreen;
+}
+.delete {
+    float: right;
+    position: absolute;
+    top: 93.4em;
+    right: 5em;
+}
+.workouts {
+    position:relative;
+    margin-right: 10em;
+    width: 100%;
+}

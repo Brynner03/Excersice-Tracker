@@ -2,6 +2,7 @@ import {CreateDay, UsersDay, EditDay, DeleteDay} from '../services/DayServices'
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Workout from './Workout';
+import '../styles/Day.css'
 
 const Day = ({user, authenticated}) => {
 
@@ -64,13 +65,14 @@ const Day = ({user, authenticated}) => {
 
 
     return user && authenticated && days ? (
-        <div>
-            <button>Add A day</button>
-            <div>{days.slice('').reverse().map((day) => (
-                <div>
+        <div className='container'>
+            <div className='test'>{days.slice('').reverse().map((day) => (
+                <div className='D'>
+                    <button className='delete' onClick={() => delDay(day)}  >Delete day</button>
                 <div className='day-name' key={day.id}>{day.name}</div>
-                <button>Delete day</button>
+                <div className='workouts'>
                 <Workout day={day} user={user} authenticated={authenticated} />
+                </div>
                 </div>
             ))}</div>
         </div>
