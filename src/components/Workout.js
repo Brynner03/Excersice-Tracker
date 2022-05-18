@@ -48,7 +48,7 @@ const Workout = ({user, authenticated, day, handleLogOut}) => {
     // Add A Workout
     const [formVal, setForm] = useState({
         name:"",
-        sets:0,
+        sets: 0,
         reps: 0,
         weight: 0
     })
@@ -156,7 +156,7 @@ const Workout = ({user, authenticated, day, handleLogOut}) => {
                                     edit?
                                     // <EditWorkoutForm workouts={workouts} setWorkouts={setWorkouts} />
                                 <form onSubmit={() => preSubmit(workout)} value={formValue}> 
-                                <input type="text" name='name' onChange={handleChangeEdit} />
+                                <input type="text" name='name' placeholder='name' onChange={handleChangeEdit} />
                                 <input type='number' name='sets' placeholder='sets' onChange={handleChangeEdit} />
                                 <input type='number' name='reps' placeholder='reps' onChange={handleChangeEdit} />
                                 <input type='number' name='weight' placeholder='weights' onChange={handleChangeEdit} /> 

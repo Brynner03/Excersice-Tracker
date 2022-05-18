@@ -6,8 +6,10 @@ import Navbar from "../components/Navbar";
 const Home = (authenticated, user, handleLogOut) => {
 
     return (
+      <div className="header">
+          <Navbar authenticated={authenticated} user={user} handleLogOut={handleLogOut} />
+
       <div className='text-box'>
-        {/* <Navbar authenticated={authenticated} user={user} handleLogOut={handleLogOut} /> */}
         <h1 class="heading-primary">
           <span class='heading-primary-main'>Track your </span>
           <span class="heading-primary-sub">fitness</span>
@@ -16,6 +18,7 @@ const Home = (authenticated, user, handleLogOut) => {
       <a href="/workout" className="btn btn-white">Start Here</a>
         {/* </Link> */}
       </div>
+        </div>
     )
 }
 

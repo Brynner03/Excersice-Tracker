@@ -10,22 +10,22 @@ const Navbar = ({ authenticated, user, handleLogOut }) => {
     let authenticatedOptions
     if (user) {
         authenticatedOptions = (
-            <div className = 'header'>
+            <div className = 'main'>
                 <nav className='navigation'>
                         <ul className='list'>
-                            <li className='navLinks'>
-                                <Link to='/'>Home</Link>
-                            </li>
-                            <li className = "navLinks">
-                                <Link  to={'/workout'}>
-                                    Workouts
-                                </Link>
-                            </li>
                             <li className="navLinks">
                              <Link  onClick={handleLogOut} to="/">
                                      Sign Out
                                 </Link>
                 </li>
+                            <li className = "navLinks">
+                                <Link  to={'/workout'}>
+                                    Workouts
+                                </Link>
+                            </li>
+                            <li className='navLinks'>
+                                <Link to='/'>Home</Link>
+                            </li>
                         </ul>
                 </nav>
             </div>
@@ -33,7 +33,7 @@ const Navbar = ({ authenticated, user, handleLogOut }) => {
     }
     let publicOptions = (
 
-            <div className="header">
+            <div className="main">
                 <nav className='navigation'>
                     <ul className='list'>
                       <li className='navLinks'>
