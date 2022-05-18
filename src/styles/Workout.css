@@ -5,12 +5,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
-    overflow-x: scroll;
-
 }
 .workoutInfo {
-    background-color: aqua;
+    background-color: rgb(124, 124, 124);
     width: 500px;
     border: 1px solid black;
     overflow: hidden;
@@ -20,21 +17,17 @@
     display: flex;
 }
 .name {
-    width: 80em;
-    border: 1px solid red;
+    width: 100em;
 }
 .reps {
-    width: 80em;
-    border: 1px solid red;
+    width: 100em;
 }
 .sets {
-    width: 80em;
-    border: 1px solid red;
+    width: 100em;
 }
 .weight {
-    width: 80em;
-    border: 1px solid red;
+    width: 100em;
 }
 .deleteWorkout {
-    width: 80em;
+    width: 100em;
 }

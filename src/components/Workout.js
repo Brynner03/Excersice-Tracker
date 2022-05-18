@@ -160,8 +160,8 @@ const Workout = ({user, authenticated, day, handleLogOut}) => {
                                 <input type='number' name='sets' placeholder='sets' onChange={handleChangeEdit} />
                                 <input type='number' name='reps' placeholder='reps' onChange={handleChangeEdit} />
                                 <input type='number' name='weight' placeholder='weights' onChange={handleChangeEdit} /> 
-                                <input type="submit"  />
-                             </form>
+                                <input type="submit"  onClick={() => setFormValue(formValue)}/>
+                             </form >
                              : null
                                 }
                             </div>
